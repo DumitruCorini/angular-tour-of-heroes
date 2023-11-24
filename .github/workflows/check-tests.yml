@@ -17,8 +17,11 @@ jobs:
         with:
           node-version: latest
 
+      - name: Checkout project
+        uses: actions/checkout@v4
+
       - name: Npm install
-        run: npm ci
+        run: npm install
 
       - name: Npm build
         run: npm run build
