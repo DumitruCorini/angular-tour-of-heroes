@@ -1,10 +1,10 @@
 name: Check that everything builds
 
 on:
-  - push:
+  push:
     branches:
       - master
-  - pull_request:
+  pull_request:
     branches:
       - master
 
@@ -18,7 +18,7 @@ jobs:
           node-version: latest
 
       - name: Npm install
-        run: npm install
+        run: npm ci
 
       - name: Npm build
         run: npm run build
