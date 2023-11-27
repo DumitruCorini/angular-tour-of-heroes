@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import {HeroesComponent} from "./heroes/heroes.component";
+import {MessagesComponent} from "./messages/messages.component";
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   templateUrl: './app.component.html',
+  standalone: true,
   imports: [
-    HeroesComponent
+    HeroesComponent,
+    MessagesComponent
   ],
   styleUrls: ['./app.component.scss']
 })
