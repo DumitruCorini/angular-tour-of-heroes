@@ -1,14 +1,18 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HeroesComponent } from './heroes/heroes.component';
-import {FormsModule} from "@angular/forms";
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http';
 import {NgFor, NgForOf, NgIf, UpperCasePipe} from "@angular/common";
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { MessagesComponent } from './messages/messages.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {InMemoryDataService} from './in-memory-data.service';
+
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {HeroesComponent} from './heroes/heroes.component';
+import {FormsModule} from "@angular/forms";
+import {HeroDetailComponent} from './hero-detail/hero-detail.component';
+import {MessagesComponent} from './messages/messages.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {HeroSearchComponent} from './hero-search/hero-search.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeroSearchComponent
   ],
   imports: [
     // Angular modules
@@ -26,6 +31,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     NgFor,
     NgForOf,
     UpperCasePipe,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, {dataEncapsulation: false}
+    ),
 
     // Our modules
     AppRoutingModule
@@ -33,4 +42,5 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
